@@ -1,0 +1,52 @@
+name: Build Spicord AdvancedBan Addon
+
+on:
+workflow_dispatch:
+push:
+branches:
+- main
+
+permissions:
+contents: read
+
+jobs:
+build:
+runs-on: ubuntu-latest
+
+steps:
+  - name: Checkout addon repository
+    uses: actions/checkout@v4
+
+  - name: Set up Java 21
+    uses: actions/setup-java@v4
+    with:
+      distribution: temurin
+      java-version: '21'
+      cache: maven
+
+  - name: Checkout Spicord source
+    uses: actions/checkout@v4
+    with:
+      repository: Spicord/Spicord
+      ref: v5
+      path: spicord-source
+
+  - name: Build Spicord API
+    run: mvn -B -f spicord-source/pom.xml -pl common -am install -DskipTests
+
+  - name: Check addon project
+    run: |
+      test -f pom.xml || {
+        echo "Missing pom.xml in addon repository"
+        exit 1
+      }
+
+  - name: Compile addon
+    run: mvn -B clean package
+
+  - name: Upload build output
+    uses: actions/upload-artifact@v4
+    with:
+      name: addon-build-output
+      path: target/
+      if-no-files-found: error

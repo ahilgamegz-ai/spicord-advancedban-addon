@@ -1,6 +1,6 @@
 name: Build Spicord AdvancedBan Addon
 
-on:
+'on':
 workflow_dispatch:
 push:
 branches:
@@ -22,29 +22,21 @@ steps:
     with:
       distribution: temurin
       java-version: '21'
-      cache: maven
 
-  - name: Checkout Spicord source
-    uses: actions/checkout@v4
-    with:
-      repository: Spicord/Spicord
-      ref: v5
-      path: spicord-source
-
-  - name: Build Spicord API
-    run: mvn -B -f spicord-source/pom.xml -pl common -am install -DskipTests
-
-  - name: Check addon project
+  - name: Check addon project files
     run: |
-      test -f pom.xml || {
-        echo "Missing pom.xml in addon repository"
+      echo "Checking repository files..."
+      ls -la
+      if [ ! -f pom.xml ]; then
+        echo "ERROR: pom.xml has not been added yet."
         exit 1
-      }
+      fi
 
-  - name: Compile addon
+  - name: Build addon
     run: mvn -B clean package
 
   - name: Upload build output
+    if: success()
     uses: actions/upload-artifact@v4
     with:
       name: addon-build-output

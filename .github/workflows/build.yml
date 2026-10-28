@@ -1,16 +1,10 @@
-name: Build Spicord AdvancedBan Addon
-'on':
-workflow_dispatch:
-push:
-branches:
-- main
+name: Test Workflow
+
+'on': [push, workflow_dispatch]
 
 jobs:
-build:
+test:
 runs-on: ubuntu-latest
 steps:
-- name: Check files
-run: |
-echo "Workflow is running"
-ls -la
-test -f pom.xml || echo "pom.xml is not added yet"
+- name: Test
+run: echo "GitHub Actions works!"

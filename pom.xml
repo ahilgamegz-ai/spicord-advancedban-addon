@@ -1,32 +1,61 @@
-<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-<modelVersion>4.0.0</modelVersion>
 
-<groupId>org.ahilgamegz</groupId>
-<artifactId>spicord-advancedban-addon</artifactId>
-<version>1.0.0</version>
-<packaging>jar</packaging>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-<properties>
-    <maven.compiler.release>21</maven.compiler.release>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-</properties>
+    <modelVersion>4.0.0</modelVersion>
 
-<repositories>
-    <repository>
-        <id>spicord-repo</id>
-        <url>https://repo.spicord.org/</url>
-    </repository>
-</repositories>
+    <groupId>org.ahilgamegz</groupId>
+    <artifactId>spicord-advancedban-addon</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
 
-<dependencies>
-    <dependency>
-        <groupId>org.spicord</groupId>
-        <artifactId>spicord-common</artifactId>
-        <version>5.8.1</version>
-        <scope>provided</scope>
-    </dependency>
-</dependencies>
+    <properties>
+        <maven.compiler.release>21</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>spicord-repo</id>
+            <url>https://repo.spicord.org/</url>
+        </repository>
+        <repository>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.spicord</groupId>
+            <artifactId>spicord-common</artifactId>
+            <version>5.8.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
+            <version>1.19-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>Spicord-AdvancedBan-Addon</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+                <configuration>
+                    <release>21</release>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
+            

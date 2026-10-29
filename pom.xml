@@ -27,22 +27,30 @@
         </repository>
     </repositories>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.spicord</groupId>
-            <artifactId>spicord-common</artifactId>
-            <version>5.8.1</version>
-            <scope>provided</scope>
-        </dependency>
+    
+<dependencies>
+    <dependency>
+        <groupId>org.spicord</groupId>
+        <artifactId>spicord-common</artifactId>
+        <version>5.8.1</version>
+        <scope>provided</scope>
+    </dependency>
 
-        <dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
-            <version>1.19-R0.1-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
+    <!-- JDA: required to compile Discord slash commands -->
+    <dependency>
+        <groupId>net.dv8tion</groupId>
+        <artifactId>JDA</artifactId>
+        <version>6.4.1</version>
+        <scope>provided</scope>
+    </dependency>
 
+    <dependency>
+        <groupId>org.spigotmc</groupId>
+        <artifactId>spigot-api</artifactId>
+        <version>1.19-R0.1-SNAPSHOT</version>
+        <scope>provided</scope>
+    </dependency>
+</dependencies>
     <build>
         <finalName>Spicord-AdvancedBan-Addon</finalName>
         <plugins>

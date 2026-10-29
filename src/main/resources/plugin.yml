@@ -1,0 +1,6 @@
+
+name: SpicordAdvancedBanAddon
+version: 1.0.0
+main: org.ahilgamegz.advancedban.AdvancedBanPlugin
+api-version: '1.19'
+depend: [Spicord]

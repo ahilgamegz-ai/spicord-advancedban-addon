@@ -1,0 +1,10 @@
+
+{
+  "id": "spicord-advancedban",
+  "name": "Spicord AdvancedBan",
+  "author": "ahilgamegz",
+  "version": "1.0.0",
+  "language": "Java",
+  "main": "org.ahilgamegz.advancedban.AdvancedBanAddon",
+  "modules": []
+}

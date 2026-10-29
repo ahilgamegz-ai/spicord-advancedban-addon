@@ -1,8 +1,31 @@
-name: Test Workflow
-'on': push
+
+name: Build Spicord AdvancedBan Addon
+
+'on':
+  push:
+  workflow_dispatch:
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-        - run: echo hello
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Build with Maven
+        run: mvn --batch-mode clean package
+
+      - name: Upload addon JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: Spicord-AdvancedBan-Addon
+          path: target/Spicord-AdvancedBan-Addon.jar
+          
